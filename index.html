@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Latihan Website</title>
+	<style type="text/css">
+		body{
+			font-family: arial;
+			font-size: 14px;
+			background-color:#a7dbd8;
+		}
+
+		#canvas{
+			width: 960px;
+			margin: 0 auto;
+			border: 1px solid silver;
+		}
+
+		#header{
+			font-size: 20px;
+			width: 960px;
+			height: 250px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: #fff;
+			color: #ccc;
+			background: url(header.png) no-repeat center;
+			background-size: 100%  100%;
+		}
+
+		#menu{
+			background-color: #2797ad;
+
+
+		}
+
+		#menu ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#menu ul li{
+			display: inline-table;
+		}
+
+		#menu ul li:hover{
+		background-color: #1c6d7d;
+		}
+
+		#menu ul li a{
+			display: block;
+			text-decoration: none;
+			line-height: 40px;
+			padding: 0 10px;
+			color: #fff;
+		}
+		
+		.utama ul{
+			display: none;
+			position: absolute;
+			z-index: 2;
+		}
+
+		.utama:hover ul{
+			display: block;
+		}
+
+		.utama ul li{
+			display: block;
+			background-color: #69d2e7;
+			width: 140px;
+		}
+
+		#isi{
+			min-height: 600px;
+			padding: 20px;	
+			background-color: #d3ebff;	
+		}
+
+		#footer{
+			text-align: center;  
+			padding: 10px;
+			color: #fff;
+			background-color:#2797ad;
+		}
+	</style>
+</head>
+<body>
+
+<div id="canvas">
+
+	<div id="header">
+	
+		
+	</div>
+
+	<div id="menu" align="center">
+		<ul>
+			<li class="utama"><a href="?page=home">Home</a></li>
+			<li class="utama"><a href="?page=profil">Profil</a></li>
+			<li class="utama"><a href="?page=tugas_kuliah">Tugas Kuliah</a></li>
+		</ul>	
+	</div>
+
+	<div id="isi">
+	<marquee direction="left">Welcome to My Website</marquee>
+
+	<?php
+	$page = @$_GET['page'];
+	$action = @$_GET['action'];
+	if($page == "profil"){
+	 	if($action == ""){
+	 		include "profil.php";
+		}
+	} else if($page == "tugas_kuliah"){
+		if($action == ""){
+			include "tugas_kuliah.php";
+		}
+	} else if($page == "home"){
+		if($action == ""){
+			include "home.php";
+		} 
+	} else if($page == ""){
+		echo "Selamat Datang di Halaman Utama";
+	} else{
+		echo "404 Halaman Tidak ditemukan!";
+	}
+	?>
+	</div>
+
+	<div id="footer">
+		
+		<marquee direction="left">Terimakasih telah berkunjung</marquee>
+	</div>
+
+</div>
+
+</body>
+</html>
